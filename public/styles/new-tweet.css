@@ -1,0 +1,34 @@
+main section {
+  position: relative;
+  padding: 2em;
+  color: white;
+}
+
+main section form textarea{
+  border: 0;
+  outline: 0;
+  color: white;
+  background: transparent;
+  border-bottom: 4px solid black;
+  margin-bottom: 10px;
+  height: 2em;
+  width: 100%;
+  resize: none;
+}
+
+.red {
+  color: red;
+}
+
+main section form span {
+  position: relative;
+  float: right;
+  font-family: 'Bungee', sans-serif;
+}
+
+main section form input {
+  font-family: 'Bungee', sans-serif;
+  background: blue;
+  color: white;
+  border: 0;
+}
