@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: white;
+  background-color: rgb(36, 33, 33);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
 }
@@ -30,7 +30,7 @@ main {
   width: 90%;
   position: relative;
   left: 5%;
-  background-color: #3d342c;
-background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  /* background-color: #3d342c;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); */
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

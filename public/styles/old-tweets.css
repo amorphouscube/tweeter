@@ -1,0 +1,31 @@
+.old-tweets article {
+  padding: 1em;
+  border: solid;
+  margin-bottom: 1em;
+}
+
+.old-tweets article:hover .username{
+  color: gray;
+}
+
+.old-tweets header .username {
+  float: right;
+  color: transparent;
+}
+
+.old-tweets header .name {
+  position: relative;
+  top: -1em;
+}
+.old-tweets footer .socials {
+  float: right;
+}
+
+.old-tweets article p {
+  border: 0;
+  border-bottom: 2px solid;
+}
+
+.old-tweets footer {
+  font-size: 12px;
+}

@@ -9,7 +9,7 @@ main section form textarea{
   outline: 0;
   color: white;
   background: transparent;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid;
   margin-bottom: 10px;
   height: 2em;
   width: 100%;
@@ -29,6 +29,6 @@ main section form span {
 main section form input {
   font-family: 'Bungee', sans-serif;
   background: blue;
-  color: white;
+  color: gray;
   border: 0;
 }
