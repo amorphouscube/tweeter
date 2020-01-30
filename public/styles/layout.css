@@ -16,7 +16,6 @@ html {
 
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
-  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
   body nav {
     background-color: #4056A1;
   }
@@ -48,17 +47,8 @@ body {
   font-size: 24px;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 main {
   z-index: 1;
   position: relative;
   top: 80px;
-  /*width: 90%;
-  left: 5%;*/
-  /* background-color: #3d342c;
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); */
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

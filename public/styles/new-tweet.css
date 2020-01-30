@@ -38,7 +38,7 @@ main section form textarea {
   display: none
 }
 
-main .new-tweet form span {
+main .new-tweet form .counter {
   position: relative;
   float: right;
   font-family: 'Bungee', sans-serif;

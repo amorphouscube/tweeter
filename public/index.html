@@ -1,12 +1,14 @@
 <!-- TODO
-fix header ratios
 New tweet text imput does not grow well for multiple lines
 Old tweets formatting does not handle multiple line tweets well either
-Tweets in wrong order
  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--Meta-->
+    <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' /> -->
+    <meta charset="UTF-8">
+
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -48,9 +50,9 @@ Tweets in wrong order
       </div>
     </header>
   
-
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <!-- Compose Tweet section-->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form id="poster" method="POST" action="/tweets" >
@@ -64,7 +66,7 @@ Tweets in wrong order
         </form>
       </section>    
       <section class="old-tweets">
-        <!-- client.js injects HTML here -->
+        <!-- client.js injects HTML with old tweets here -->
       </section>  
     </main>
   </body>
