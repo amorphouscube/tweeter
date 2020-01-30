@@ -8,7 +8,7 @@ It does not save the tweets for longer than one session.
 
 ## Screenshots
 
-
+![desktop UI](https://github.com/amorphouscube/tweeter/blob/master/docs/Screenshot.png)
 
 ## Dependencies
 
