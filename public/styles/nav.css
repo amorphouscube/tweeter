@@ -8,16 +8,14 @@ nav {
   color: #FFFF;
   background-color: transparent;
   padding: 1em;
-}
-
-nav .title {
   font-family: 'Bungee', sans-serif;
 }
 
 nav button {
   background-color: rgb(36, 33, 33);
-  color: white;
+  color: blue;
   float: right;
+  border: 0;
 }
 
 nav button:hover {
