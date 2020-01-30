@@ -8,12 +8,11 @@ $(document).ready(function() {
       $(this).parent().children(".counter").addClass("red");
     } else {
       $(this).parent().children(".counter").removeClass("red");
-
     }
   })
 
   $tweet.on('keyup', function() {
-    let textLength = this.value.length;
+    let textLength = $(this).val().length;
     $(this).parent().children(".counter").html(140 - textLength);
     if (textLength > 140){
       $(this).parent().children(".counter").addClass("red");
@@ -21,6 +20,4 @@ $(document).ready(function() {
       $(this).parent().children(".counter").removeClass("red");
     }
   })
-  
-  console.log("testing 1 2 3");
 });

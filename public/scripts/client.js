@@ -4,37 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function() {
-
- let utcDate1 = new Date();
- utcDate1 = Date.parse(utcDate1);
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const howLongAgo= function(miliseconds) {
+  let utcDate1 = new Date();
+  utcDate1 = Date.parse(utcDate1);
+  miliseconds = utcDate1 - miliseconds;
   if(miliseconds > 31536000000) { //years case
     return `${Math.floor(miliseconds / 31536000000)} years ago`;
   } else if(miliseconds > 86400000) { //days case
@@ -48,29 +21,92 @@ const howLongAgo= function(miliseconds) {
 
 const renderTweets = function(tweets) {
   let result = "";
-  for (let element in tweets){
+  for (let element in tweets.reverse()){
     result += createTweetElement(tweets[element]);
   }
+  $('.old-tweets').empty();
   $('.old-tweets').append(result);
 }
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 
 const createTweetElement = function(tweet) {
   return `
   <article>
     <header>
-      <span><img src="${tweet.user.avatars}"></span>
-      <span class="name">${tweet.user.name}</span>
-      <span class="username">${tweet.user.handle}</span>
+      <span><img src="${escape(tweet.user.avatars)}"></span>
+      <span class="name">${escape(tweet.user.name)}</span>
+      <span class="username">${escape(tweet.user.handle)}</span>
     </header>
-    <p>${tweet.content.text}</p>
+    <p>${escape(tweet.content.text)}</p>
     <footer>
-      <span>${howLongAgo(utcDate1 - (tweet.created_at))}</span>
-      <span class="socials">socials</span>
+      <span>${howLongAgo(tweet.created_at)}</span>
+      <span class="socials">⚑ ⇅ ❤</span>
     </footer>
   </article>
   `;
 }
 
-renderTweets(data);
+const loadTweets = function() {
+  $.ajax({
+    url: "/tweets",
+    method: 'GET',
+    dataType: 'json'
+  })
+  .then(response => {
+    renderTweets(response);
+  })
+}
+
+//make an ajax post request when form data is submitted
+const postTweet = function() {
+  $("#poster").submit(function (event) {
+  event.preventDefault();
+  const datum = $(this).serialize();
+    if (datum === "text=" || datum === null || datum === undefined) {
+      $(".noText").slideDown( "fast", function() {
+      });
+      $(".overLimit").slideUp( "fast", function() {
+      });
+    } else if (datum.length > 145){
+      console.log("overlimit")
+      $(".overLimit").slideDown( "fast");
+      $(".noText").slideUp( "fast");
+    } else {
+      $.ajax({ 
+        data: datum,
+        url: "/tweets",
+        dataType: 'text',
+        method: 'POST' 
+      })
+      .then( () =>{
+        $(".new-tweet textarea").val('');
+        $(".counter").text('140');
+        $(".overLimit").slideUp( "fast");  
+        $(".noText").slideUp( "fast");      
+        loadTweets();
+      })
+    }
+  });
+}
+
+const formToggle = function() {
+$("nav button").on('click', function () {
+  $( ".new-tweet" ).slideToggle("slow", function () {
+    $(".new-tweet textarea").focus();
+  })
+})
+}
+
+$(document).ready(function() {
+
+postTweet();
+loadTweets();
+formToggle();
 
 })

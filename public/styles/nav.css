@@ -6,10 +6,18 @@ nav {
   height: 120px;
   z-index: 1080;
   color: #FFFF;
-  background-color: #4056A1;
+  background-color: transparent;
   padding: 1em;
 }
 
-nav span {
+nav .title {
   font-family: 'Bungee', sans-serif;
+}
+
+nav button {
+  float: right;
+}
+
+nav button:hover {
+  box-shadow: 10px 5px 5px Black;
 }

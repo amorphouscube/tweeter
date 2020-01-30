@@ -4,7 +4,11 @@ main section {
   color: white;
 }
 
-main section form textarea{
+main .new-tweet {
+  display: none;
+}
+
+main section form textarea {
   border: 0;
   outline: 0;
   color: white;
@@ -20,15 +24,33 @@ main section form textarea{
   color: red;
 }
 
-main section form span {
+.error-output {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.noText {
+  display: none
+}
+
+.overLimit {
+  display: none
+}
+
+main .new-tweet form span {
   position: relative;
   float: right;
   font-family: 'Bungee', sans-serif;
 }
 
-main section form input {
+main .new-tweet form input {
   font-family: 'Bungee', sans-serif;
   background: blue;
-  color: gray;
+  color: white;
   border: 0;
+}
+
+main .new-tweet form input:hover {
+  box-shadow: 10px 5px 5px black;
 }

@@ -1,6 +1,8 @@
 <!-- TODO
-Hover over script is currently broken
+fix header ratios
 New tweet text imput does not grow well for multiple lines
+Old tweets formatting does not handle multiple line tweets well either
+Tweets in wrong order
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +28,14 @@ New tweet text imput does not grow well for multiple lines
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/old-tweets.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="title">tweeter</span>
+      <button id="newButton" type=button>New Tweet</button>
     </nav>
   <!-- Main Header-->
     <header class="head">
@@ -51,10 +53,14 @@ New tweet text imput does not grow well for multiple lines
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" >
+        <form id="poster" method="POST" action="/tweets" >
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
+          <footer class="error-output">
+            <p class="noText">Tweet is empty</p>
+            <p class="overLimit">Too many Characters</p>
+          </footer>
         </form>
       </section>    
       <section class="old-tweets">
